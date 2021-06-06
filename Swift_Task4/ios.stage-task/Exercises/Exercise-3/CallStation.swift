@@ -6,6 +6,12 @@ final class CallStation {
     var currentCalls: [UUID: Call] = [:]
 }
 
+extension User: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+}
+
 extension CallStation: Station {
     
     func users() -> [User] {
